@@ -35,5 +35,38 @@ public:
     }
     
 };
+----------------
+
+[TWO POINTERS]
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+       
+      int n = nums.size();
+
+
+       vector<vector<int>>v;
+        for (int i =0 ; i<n ;i++)
+        v.push_back ({nums[i],i});
+
+        sort (v.begin(), v.end());
+
+        int l = 0 , r = n-1;
+        while(l<r)
+{
+    int  left_element = v[l][0] ;
+    int right_element = v[r][0];
+    int left_index = v[l][1] ,  right_index = v[r][1];
+
+    int sum = left_element + right_element;
+
+    if(sum<target) l++;
+  else if(sum > target) r--;
+    else return {left_index , right_index};
+}
+ return {};
+    }
+};
 
 -----------------------------
+
