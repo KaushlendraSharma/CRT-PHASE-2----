@@ -83,3 +83,42 @@ sort (nums.begin (), nums.end());
 return nums[n/2];
     }
 };
+
+----------------------------------------
+
+[HASH MAP ]
+
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+
+int n = nums.size();
+map<int , int>m;
+for (int i : nums){
+    m[i]++;
+    if (m[i]>n/2)
+    return i;
+}
+  return -1;
+    }
+};
+
+------------------------------------------------
+[MORES ALGO]
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+
+ int candidate = 0 , count = 0;
+ for (int i : nums){
+    if (count == 0){
+        candidate = i;
+    }
+ if (i == candidate){
+        count ++;
+    }
+    else count--;
+ }
+ return candidate;
+    }
+};
