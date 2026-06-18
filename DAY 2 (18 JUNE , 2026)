@@ -104,4 +104,48 @@ public:
 };
 
 
+-------------------------------LC 724 - FIND PIVOT INDEX---------------------------------------
+ APP 1
 
+class Solution {
+public:
+    int pivotIndex(vector<int>& nums) {
+    int prefixSum = 0;
+    int totalSum = 0;
+    for(int i : nums) totalSum +=i;
+    // intTotalSum = accumulate (nums.begin(),nums.end(),0);
+
+    for (int i =0 ; i<nums.size(); i++){
+        prefixSum += nums[i];
+
+        int leftSum = prefixSum-nums[i];
+        int rightSum = totalSum- prefixSum;
+
+        if(leftSum == rightSum) return i;
+    }
+    return -1;
+    }
+};
+
+
+APP 2 --
+
+class Solution {
+public:
+    int pivotIndex(vector<int>& nums) {
+    int prefixSum = 0;
+    // int totalSum = 0;
+    // for(int i : nums) totalSum +=i;
+    int TotalSum = accumulate(nums.begin(),nums.end(),0);
+
+    for (int i =0 ; i<nums.size(); i++){
+        prefixSum += nums[i];
+
+        int leftSum = prefixSum-nums[i];
+        int rightSum = TotalSum- prefixSum;
+
+        if(leftSum == rightSum) return i;
+    }
+    return -1;
+    }
+};
