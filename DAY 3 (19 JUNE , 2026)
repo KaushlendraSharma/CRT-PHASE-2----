@@ -95,3 +95,39 @@ public:
          
     }
 };
+
+----------------------------------
+
+----------------------LC 35 SELECT INSERTION POINT -------------------------
+
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+        
+
+        int n = nums.size();
+        int x;
+        auto lb = lower_bound(nums.begin() , nums.end(), target);
+        auto ub =  upper_bound(nums.begin() , nums.end(), target);
+
+    
+        return (lb - nums.begin());
+    }
+   
+};
+
+------------------------LC 34 FIND FIRST AND LAST POSITON IN SORTED ARRAY--------------------------------
+
+class Solution {
+public:
+    vector<int> searchRange(vector<int>& nums, int target) {
+     vector<vector<int>>ans;
+
+     auto lb = lower_bound(nums.begin(), nums.end() , target);
+     auto ub = upper_bound(nums.begin(), nums.end() , target);
+     int LB = lb - nums.begin();
+     int UB = ub - nums.begin();
+     if(ub ==lb) return {-1,-1};
+      else return {LB , UB-1};
+    }
+};
