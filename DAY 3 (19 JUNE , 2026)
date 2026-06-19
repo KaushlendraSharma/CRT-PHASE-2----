@@ -131,3 +131,18 @@ public:
       else return {LB , UB-1};
     }
 };
+
+---------------------CODING NINJA - Number of occurrence-----------------------
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int count(vector<int>& arr, int n, int x) {
+    auto lb = lower_bound(arr.begin(), arr.end(), x);
+    auto ub = upper_bound(arr.begin(), arr.end(), x);
+
+    int LB = lb - arr.begin();
+    int UB = ub - arr.begin();
+
+    return UB - LB;
+}
