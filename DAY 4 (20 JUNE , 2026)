@@ -52,3 +52,32 @@ public:
      return -1;
   }
 };
+
+--------------------------LC 125 - VALID PALINDROME-------------------
+
+class Solution {
+public:
+    bool isPalindrome(string s) {
+    
+    // STEP 1 = EXTRACT ALL ALPHANUMERIC  IN NEW STRING
+   string s2;
+
+   for(char ch :s)
+    if(isalnum(ch))
+        // step 2 - convert all to lower case
+        s2 += tolower(ch);
+    
+    // reverse string
+    string rev = s2;
+
+    reverse(rev.begin() , rev.end());
+
+    if (s2==rev)
+    return true;
+    
+    else 
+     return false;
+    
+   }
+   
+};
