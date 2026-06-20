@@ -1,0 +1,24 @@
+--------------------LC 162  FIND PEAK ELEMENT---------------------------
+[LOOP APPROACH]
+
+class Solution {
+public:
+    int findPeakElement(vector<int>& nums) {
+       int n = nums.size();
+       if(n==1) return 0;
+      if (nums[0] > nums[1]) return 0 ;
+      if (nums[n-1] > nums[n-2]) return n-1 ;
+
+// ITERRATE THROUGH THE ARRAY
+
+       for (int i = 1 ; i<n-1 ; i++){
+        // FOR EVERY ELEMENT CHECK IT ITS LARGER THAN ITS NEIGHBOURS
+        if (nums[i]>nums[i+1] && nums[i]>nums[i-1]){
+            //IF SUCH ELEMENT IS FOUND RETURN THE INDEX
+       return i ; 
+        }
+       // RETURN -1 , IF NOT FOUND
+       }
+       return -1;
+    }
+};
