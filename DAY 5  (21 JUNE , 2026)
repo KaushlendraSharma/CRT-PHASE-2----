@@ -10,3 +10,15 @@ public:
         return num;
     }
 };
+
+------------------------------------------GOG FIND ODD AND EVEN----------------------------
+
+int isEven(int n) {
+    // code here
+    
+    // return (1-(n&1));
+    
+    // return ((n&1)==0);
+    // if (n&1 == 1) return 0;
+    // else return 1;
+}
