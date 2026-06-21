@@ -33,12 +33,61 @@ class Solution {
         
         while(n>0){
             
-            if(n&1) 
+            if(n&1==1) 
             count++;
             // count = count +(n&1);
             n= n>>1;
         }
         
+        return count;
+    }
+};
+
+// __builtin_popcount(n) - return number of set bits
+
+
+------------------------LC 231 POWER OF TWO--------------------------
+class Solution {
+public:
+    bool isPowerOfTwo(int n) {
+    return  __builtin_popcount(n)==1 && n>0;
+    }
+};
+----------------------LC 136 - SINGLE NUMBER--------------------------------
+
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int single = 0;
+
+        for (int i : nums){
+            single ^=i;
+        }
+        return single;
+    }
+};
+
+---------------------LC 2220 MINIMUM BIT FLIPS TO CONVERT A NUMBER---------------------------
+
+class Solution {
+public:
+    int minBitFlips(int start, int goal) {
+    
+      
+        return __builtin_popcount(start^goal);
+    }
+};
+
+--------------------------LC - 763-------------------------------------
+
+class Solution {
+public:
+    int countPrimeSetBits(int left, int right) {
+        int count =0;
+         for (int i= left; i<=right ; i++ ){
+        int sb = __builtin_popcount(i);
+        if(sb==2 ||sb==3 ||sb==5 ||sb==7 ||sb==11 ||sb==13 ||sb==17||sb==19) count++;
+        }
         return count;
     }
 };
