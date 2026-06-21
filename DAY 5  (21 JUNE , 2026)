@@ -1,0 +1,12 @@
+---------------------LC 1903 - LARGEST ODD NUMBER IN A STRING-----------------------------
+
+class Solution {
+public:
+    string largestOddNumber(string num) {
+        int n = num.size();
+        while( num.empty() == false && num.back()%2 == 0){
+            num.pop_back();
+        }
+        return num;
+    }
+};
