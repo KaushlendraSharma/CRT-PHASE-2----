@@ -92,3 +92,31 @@ class Solution {
                  return count;
     }
 };
+
+-------------------------------------------------------------
+
+--------------------------GOG DELETE HEAD OF A DOUBLY LINKED LIST----------------------------
+
+/*
+struct Node
+{
+    int data;
+    Node * next;
+    Node * prev;
+    Node (int x)
+    {
+        data=x;
+        next=NULL;
+        prev=NULL;
+    }
+
+};
+*/
+Node *deleteHead(Node *head) {
+    // Your code here
+
+   head = head->next;
+    head->prev = NULL;
+    
+    return head;
+}
