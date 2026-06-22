@@ -1,1 +1,94 @@
+//GOG INSERTION AT BEGININIG
 
+
+/*
+class Node {
+  public:
+    int data;
+    Node *next;
+
+    Node(int x) {
+        data = x;
+        next = NULL;
+    }
+};
+*/
+
+class Solution {
+  public:
+    Node *insertAtFront(Node *head, int x) {
+      Node* newHead = new Node(x);
+      newHead->next = head;
+        
+        return newHead;
+        
+    }
+};
+
+----------------------
+
+------------------------GOG SEARCH IN LINKED LIST---------------------------
+
+/*
+class Node {
+  public:
+    int data;
+    Node* next;
+
+    Node(int x) {
+        data = x;
+        next = NULL;
+    }
+}; */
+
+class Solution {
+  public:
+    bool searchKey(Node* head, int key) {
+        // Code here
+                 Node* temp = head;
+                 
+                 while(temp!=NULL){
+                     
+                     
+                     if(temp-> data == key){
+                         return true;
+                     }
+                     temp = temp->next;
+                 }
+                 return false;
+    }
+};
+
+-------------------------------------
+
+
+-----------------------------LENGTH OF LINKED LIST-------------------------------
+
+/* Structure of linked list Node
+class Node {
+  public:
+    int data;
+    Node *next;
+
+    Node(int x) {
+        data = x;
+        next = nullptr;
+    }
+};
+*/
+class Solution {
+  public:
+    int getCount(Node* head) {
+        // Code here
+        
+         Node* temp = head;
+                 int count=0;
+                 while(temp!=NULL){
+
+                     count++;
+                     temp = temp->next;
+                     
+                 }
+                 return count;
+    }
+};
