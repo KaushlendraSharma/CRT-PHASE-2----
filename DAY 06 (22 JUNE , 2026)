@@ -117,6 +117,35 @@ Node *deleteHead(Node *head) {
 
    head = head->next;
     head->prev = NULL;
-    
+
+------------------
+
+------------------LC 237 - DELTE NODE IN A LINKED LIST---------------------
+
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    void deleteNode(ListNode* node) {
+    node-> val = node->next->val;
+    node->next = node->next->next;
+
+    }
+};
+
+
+
+
+
+
+
+
     return head;
 }
