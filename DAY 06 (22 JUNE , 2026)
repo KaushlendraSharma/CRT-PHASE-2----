@@ -140,12 +140,118 @@ public:
     }
 };
 
+----------
+------------------GOG - REVERSE A DOUBLY LINKED LIST---------------------------------
+
+/* Structure of doubly linked list node
+class Node {
+  public:
+    int data;
+    Node *next;
+    Node *prev;
+
+    Node(int val) {
+        data = val;
+        next = nullptr;
+        prev = nullptr;
+    }
+};
+
+*/
+class Solution {
+  public:
+    Node *reverse(Node *head) {
+       // code here
+       
+       if (head==NULL ||head->next == NULL) return head;
+       
+       Node* curr = head;
+    Node* temp = NULL;
+    
+   while(curr!=NULL) {
+        temp = curr->prev;
+       curr->prev = curr->next;
+       curr->next = temp;
+       
+       curr = curr->prev;
+    }
+    return temp->prev;
+    }
+};
+
+----------------------------------LC - 876 - MIDDLE OF THE LINKED LIST-----------------------------------
 
 
+    /**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* middleNode(ListNode* head) {
+        ListNode* slow = head;
+        ListNode* fast = head;
+       while (fast != nullptr && fast->next != nullptr){
+        slow = slow->next;
+        fast = fast->next->next;
+       }
+        return slow;
+    }
+};
+---------------------141 - LC - LINKED LIST CYCLE--------------------
 
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+         ListNode* slow = head;
+        ListNode* fast = head;
+       while (fast != nullptr && fast->next != nullptr){
+        slow = slow->next;
+        fast = fast->next->next;
 
+        if(slow==fast){
+            return true;
+        }
+       }
+       return false;
+    }
+};
 
+----------------------LC 142 - LINKED LIST CYCLE 2-------------------------
 
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode *detectCycle(ListNode *head) {
+        set <ListNode*>s;
 
-    return head;
-}
+        while (head!=NULL){
+            if (s.count(head)) return head;
+
+            s.insert(head);
+            head = head->next;
+        }
+        return NULL;
+    }
+};
