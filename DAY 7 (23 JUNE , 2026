@@ -1,6 +1,10 @@
 LC - 160 - INTERSECTION OF TWO LINKED LIST
 
 
+//--------------\\
+   BY TRAVERSAL
+\\--------------//   
+
 
 /**
  * Definition for singly-linked list.
@@ -43,5 +47,32 @@ public:
              headB = headB->next;
         }
         return headA;
+    }
+};
+
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+//--------------\\
+   TWO POINTERS
+\\--------------// 
+
+
+class Solution {
+public:
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+ListNode* tA = headA;
+        ListNode* tB = headB;
+
+        while (tA!=tB){
+            if(tA==NULL) tA = headB;
+            else tA = tA->next;
+
+            if(tB==NULL) tB = headA;
+            else tB = tB->next;
+        }
+
+        return tA;
     }
 };
