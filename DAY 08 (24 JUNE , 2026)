@@ -45,3 +45,70 @@ class myStack {
         // Returns the top element of the stack
     }
 };
+
+
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+
+ //||||||||||||||||||||||\\
+||Stack using Linked List ||
+ \\||||||||||||||||||||||//
+
+
+/* Structure of linked list Node
+class Node {
+  public:
+    int data;
+    Node* next;
+
+    Node(int x) {
+        data = x;
+        next = nullptr;
+    }
+};
+*/
+class myStack {
+ int data ;
+ Node* next;
+ Node* head;
+ int c=0;
+  public:
+    myStack() {
+        // Initialize your data members
+        head = NULL;
+    }
+
+    bool isEmpty() {
+        return head == NULL;
+        // check if the stack is empty
+    }
+
+    void push(int x) {
+        Node* t = new Node(x);
+        t->next = head;
+        // Adds an element x at the top of the stack
+        head = t;
+        c++;
+        
+    }
+
+    void pop() {
+        if(head==NULL) return;
+        // Removes the top element of the stack
+        head = head->next;
+        c--;
+    }
+
+    int peek() {
+        if(head==NULL) return -1;
+        // Returns the top element of the stack
+        // If stack is empty, return -1
+        return head->data;
+    }
+
+    int size() {
+        // Returns the current size of the stack.
+        return c;
+    }
+};
