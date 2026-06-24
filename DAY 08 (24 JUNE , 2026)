@@ -1,0 +1,47 @@
+
+ //|||||||||||||||||||||||||\\
+||Implement stack using array||
+ \\|||||||||||||||||||||||||//
+
+
+class myStack {
+    int arr[1004];
+    int size;
+     int top;
+  public:
+    myStack(int n) {
+        // Define Data Structures
+     
+        size = n;
+         top = -1;
+    }
+
+    bool isEmpty() {
+        // check if the stack is empty
+        return top == -1;
+    }
+
+    bool isFull() {
+        // check if the stack is full
+        return top ==size-1;
+    }
+
+    void push(int x) {
+        if(isFull()) return;
+        // inserts x at the top of the stack
+        top++;
+        arr[top] =x;
+    }
+
+    void pop() {
+        if(isEmpty()) return ;
+        // removes an element from the top of the stack
+        top--;
+    }
+
+    int peek() {
+        if(isEmpty()) return -1;
+        return arr[top];
+        // Returns the top element of the stack
+    }
+};
