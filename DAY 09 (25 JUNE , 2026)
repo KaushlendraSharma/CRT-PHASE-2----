@@ -1,0 +1,106 @@
+-------------------VALID PARANTHESES - LC - 20--------------------------
+
+
+APPROACH [1]
+
+class Solution {
+public:
+    bool isValid(string s) {
+     stack<char> st;
+     for(char ch : s){
+        if(ch=='(' || ch=='{' || ch=='['){
+            st.push(ch);
+        }
+
+        else {
+            if(st.empty()) return false;
+            if(st.top()=='('&& ch==')'){
+                st.pop();
+            }
+           else  if(st.top()=='['&& ch==']'){
+                st.pop();
+            }
+           else  if(st.top()=='{'&& ch=='}'){
+                st.pop();
+            }
+            else return false;
+        }
+     }
+            
+     return st.empty();
+    }
+};
+
+
+[APPROACH 2]
+
+class Solution {
+public:
+    bool isValid(string s) {
+     stack<char> st;
+     for(char c : s){
+        if (c=='('){
+            st.push(')');
+        }
+        else if (c=='{'){
+            st.push('}');
+        }
+        else if (c=='['){
+            st.push(']');
+        }
+        else {
+            if(st.empty() || st.top()!=c ){
+                    return false;
+                 }
+                 st.pop();
+        }
+     } 
+     return st.empty();    
+    }
+};
+
+
+------------------------LC 1047 - REMOVE ALL ADJACENT DUPLICATES IN ELEMENTS---------------------------
+
+[STACK IMPLEMENTATION IN STRING]
+
+class Solution {
+public:
+    string removeDuplicates(string s) {
+           string ans;
+
+        for (char ch : s) {
+            if (!ans.empty() && ans.back() == ch)
+                ans.pop_back();
+            else
+                ans.push_back(ch);
+        }
+
+        return ans;
+
+       
+    }
+    };
+
+    ----------------------------LC 402 - REMOVE K DIGITS--------------------------------------
+
+    class Solution {
+public:
+    string removeKdigits(string num, int k) {
+        string st;
+       for(char ch :num){
+
+        while( !st.empty() && k>0 && ch <st.back()) {
+            st.pop_back();
+            k--;
+            }
+            st.push_back(ch);
+       }
+       while (k--) st.pop_back();
+
+       while (!st.empty() && st[0]=='0') st.erase(st.begin());
+
+       if (st.empty()) return "0";
+       return st;
+    }
+};
