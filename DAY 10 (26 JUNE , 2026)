@@ -1,0 +1,61 @@
+-----------------LC 3024 - TYPES OF TRIANGLE------------------
+
+
+
+class Solution {
+public:
+    string triangleType(vector<int>& nums) {
+         
+        sort(nums.begin() , nums.end());
+   if (nums[0] + nums[1] <= nums[2]) return "none";
+
+   else if(nums[0]==nums[1] && nums[1]==nums[2]) return "equilateral";
+
+   else if(nums[0]!=nums[1] && nums[1]!=nums[2]) return "scalene";
+         else return "isosceles";
+    }
+};
+
+
+------------------LC 3019 - NUMBER OF CHANGING KEYS--------------------
+
+class Solution {
+public:
+    int countKeyChanges(string s) {
+     
+     int n = s.size();
+
+     int ans = 0;
+
+     for( char&ch : s) {
+        ch = tolower(ch);
+     }
+
+     for (int i=1; i<n ;i++){
+
+        if(s[i]!=s[i-1]) ans++;
+     }
+
+  return ans;
+
+    }
+};
+
+----------------------------LC 2652 - SUM MULTIPLES--------------------------------
+
+class Solution {
+public:
+    int sumOfMultiples(int n) {
+      
+
+        
+ int sum = 0;
+        for (int i=1 ; i<=n ; i++){
+
+          if(i%3==0 ||i%5==0 ||i%7==0 ){
+            sum +=i;
+          }
+        }
+        return sum;
+    }
+};
