@@ -95,3 +95,34 @@ public:
      return nums;
     }
 };
+
+
+----------------------------COUNT THE DIGITS THAT DIVIDES A NUMBER---------------------------------
+
+class Solution {
+public:
+    int countDigits(int num) {
+        int n = num;
+        int ans = 0;
+
+        while (n!=0) {
+            
+            ans += num % (n % 10) == 0;
+            n /= 10;
+        }
+
+        return ans;
+    }
+};
+
+-------------------------------lc - 2796 - find the max number acchievable-------------------------------------
+
+class Solution {
+public:
+    int theMaximumAchievableX(int num, int t) {
+
+       
+ 
+       return num+2*t;
+    }
+};
