@@ -59,3 +59,69 @@ public:
         return triangle[0][0];
     }
 };
+
+-----------------------LC -198 HOUSE ROBBER------------------------------
+
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+        int n = nums.size();
+
+        if(n == 0) return 0;
+        if(n == 1) return nums[0];
+
+        vector<int> profit(n, 0);
+
+        profit[0] = nums[0];
+        profit[1] = max(nums[0], nums[1]);
+
+        for(int i = 2; i < n; i++) {
+
+            int Rob = nums[i] + profit[i-2];
+            int Skip = profit[i-1];
+
+            profit[i] = max(Rob, Skip);
+        }
+
+        return profit[n-1];
+    }
+};
+
+
+
+---------------------------------
+
+class Solution {
+    int rob2(vector<int>& nums) {
+        int n = nums.size();
+
+        if(n == 0) return 0;
+        if(n == 1) return nums[0];
+
+        vector<int> profit(n, 0);
+
+        profit[0] = nums[0];
+        profit[1] = max(nums[0], nums[1]);
+
+        for(int i = 2; i < n; i++) {
+
+            int Rob = nums[i] + profit[i-2];
+            int Skip = profit[i-1];
+
+            profit[i] = max(Rob, Skip);
+        }
+
+        return profit[n-1];
+    }
+public:
+    int rob(vector<int>& nums) {
+        if(nums.size() == 1)    return nums[0];
+        int x = nums.back();
+        nums.pop_back();
+        int ans1 = rob2(nums);
+        nums.push_back(x);
+        nums.erase(nums.begin());
+        int ans2 = rob2(nums);
+        return max(ans1, ans2);
+    }
+};
